@@ -4,7 +4,9 @@ Coordinates detecting new accepted submissions, fetching details, and writing lo
 """
 
 import os
-from typing import Dict
+import json
+from datetime import datetime, timezone
+from typing import Dict, List, Any
 import api
 
 # Map language to file extension
@@ -64,6 +66,65 @@ def title_from_slug(slug: str) -> str:
     """
     return "-".join(word.capitalize() for word in slug.split("-") if word)
 
+def generate_metadata(
+    problem_dir: str,
+    question_id: str,
+    title: str,
+    title_slug: str,
+    difficulty: str,
+    language: str,
+    tags: List[str]
+) -> None:
+    """
+    Creates or updates the metadata.json file inside the problem folder.
+    Updates the file only if the data has changed.
+    
+    :param problem_dir: Target directory path for the problem.
+    :param question_id: LeetCode question ID.
+    :param title: Clean title of the problem.
+    :param title_slug: Slug of the problem title.
+    :param difficulty: Difficulty level.
+    :param language: Language of the solution.
+    :param tags: Topic tags associated with the question.
+    """
+    filepath = os.path.join(problem_dir, "metadata.json")
+    url = f"https://leetcode.com/problems/{title_slug}/"
+    
+    new_data = {
+        "question_id": question_id,
+        "title": title,
+        "title_slug": title_slug,
+        "difficulty": difficulty,
+        "language": language,
+        "url": url,
+        "tags": tags
+    }
+    
+    should_write = True
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+            
+            # Compare all keys in new_data to check for changes
+            all_match = True
+            for key, val in new_data.items():
+                if existing_data.get(key) != val:
+                    all_match = False
+                    break
+            
+            if all_match:
+                should_write = False
+        except Exception as e:
+            print(f"Warning: Failed to parse existing metadata.json at {filepath}: {e}")
+            
+    if should_write:
+        new_data["synced_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        os.makedirs(problem_dir, exist_ok=True)
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(new_data, f, indent=2)
+        print(f"Saved metadata: {filepath}")
+
 def sync_solutions(username: str, output_dir: str = "solutions") -> int:
     """
     Syncs the latest accepted submissions for a given user.
@@ -108,7 +169,22 @@ def sync_solutions(username: str, output_dir: str = "solutions") -> int:
         filepath = os.path.join(problem_dir, f"solution.{ext}")
         
         if os.path.exists(filepath):
-            # Already synced, skip
+            # Already synced, check if metadata is missing
+            metadata_filepath = os.path.join(problem_dir, "metadata.json")
+            if not os.path.exists(metadata_filepath):
+                tags = [tag["name"] for tag in question.get("topicTags", [])] if question else []
+                try:
+                    generate_metadata(
+                        problem_dir=problem_dir,
+                        question_id=question_id,
+                        title=sub.get("title", ""),
+                        title_slug=title_slug,
+                        difficulty=difficulty,
+                        language=lang,
+                        tags=tags
+                    )
+                except Exception as e:
+                    print(f"Warning: Failed to generate metadata for {title_slug}: {e}")
             continue
             
         print(f"Syncing new accepted solution: {title_slug} ({lang})...")
@@ -125,6 +201,22 @@ def sync_solutions(username: str, output_dir: str = "solutions") -> int:
             f.write(header + code + "\n")
             
         print(f"Saved: {filepath}")
+        
+        # 4. Generate and save metadata.json
+        tags = [tag["name"] for tag in question.get("topicTags", [])] if question else []
+        try:
+            generate_metadata(
+                problem_dir=problem_dir,
+                question_id=question_id,
+                title=sub.get("title", ""),
+                title_slug=title_slug,
+                difficulty=difficulty,
+                language=lang,
+                tags=tags
+            )
+        except Exception as e:
+            print(f"Warning: Failed to generate metadata for {title_slug}: {e}")
+            
         synced_count += 1
         
     return synced_count

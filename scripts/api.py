@@ -129,6 +129,9 @@ def get_question_details(title_slug: str) -> Dict[str, Any]:
         questionId
         title
         difficulty
+        topicTags {
+          name
+        }
       }
     }
     """
