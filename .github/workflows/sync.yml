@@ -1,32 +1,44 @@
+# GitHub Actions workflow to automatically sync LeetCode solutions
 name: Sync LeetCode Solutions
 
 on:
+  # Run the workflow automatically every 15 minutes (development mode schedule)
   schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight UTC
-  workflow_dispatch:      # Allows manual trigger
+    - cron: '*/15 * * * *'
+  # Enable manual triggering of this workflow from the GitHub UI Actions tab
+  workflow_dispatch:
 
+# Set repository permissions to allow staging and committing changes back to the repository
 permissions:
-  contents: write         # Grant write access to push changes back
+  contents: write
 
 jobs:
   sync:
+    # Run the job on the latest Ubuntu container environment
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository content
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          # Fetch all history to ensure proper git commits and tracking
+          fetch-depth: 0
 
+      # Step 2: Set up a Python 3.13 runtime environment and enable caching for pip
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.13'
           cache: 'pip'
 
+      # Step 3: Upgrade pip and install all required python dependencies
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Step 4: Run the main sync script passing LeetCode session tokens via secrets
       - name: Run Sync Script
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
@@ -34,16 +46,22 @@ jobs:
         run: |
           python scripts/main.py
 
+      # Step 5: Stage all changes, verify staged contents, commit and push changes back
       - name: Commit and Push Changes
         run: |
+          # Configure Git user identity for committing using the GitHub Actions bot
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Easy/ Medium/ Hard/
           
-          # Only commit and push if there are new/modified solutions
-          if [ -n "$(git status --porcelain Easy/ Medium/ Hard/)" ]; then
-            git commit -m "Auto-sync: Add new LeetCode solutions"
-            git push
-          else
+          # Stage all untracked, modified, and deleted files in the workspace
+          git add .
+          
+          # Verify whether there are any staged changes in the Git index
+          if git diff --cached --quiet; then
             echo "No new solutions to sync."
+            exit 0
           fi
+          
+          # Commit the staged changes and push to the remote branch
+          git commit -m "chore: sync LeetCode solutions"
+          git push
