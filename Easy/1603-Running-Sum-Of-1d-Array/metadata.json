@@ -1,0 +1,16 @@
+{
+  "question_id": "1603",
+  "title": "Running Sum of 1d Array",
+  "title_slug": "running-sum-of-1d-array",
+  "difficulty": "Easy",
+  "language": "python3",
+  "url": "https://leetcode.com/problems/running-sum-of-1d-array/",
+  "tags": [
+    "Array",
+    "Prefix Sum"
+  ],
+  "description": "<p>Given an array <code>nums</code>. We define a running sum of an array as\u00a0<code>runningSum[i] = sum(nums[0]\u2026nums[i])</code>.</p>\n<p>Return the running sum of <code>nums</code>.</p>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> nums = [1,2,3,4]\n<strong>Output:</strong> [1,3,6,10]\n<strong>Explanation:</strong> Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> nums = [1,1,1,1,1]\n<strong>Output:</strong> [1,2,3,4,5]\n<strong>Explanation:</strong> Running sum is obtained as follows: [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1].</pre>\n<p><strong class=\"example\">Example 3:</strong></p>\n<pre>\n<strong>Input:</strong> nums = [3,1,2,10,1]\n<strong>Output:</strong> [3,4,6,16,17]\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= nums.length &lt;= 1000</code></li>\n<li><code>-10^6\u00a0&lt;= nums[i] &lt;=\u00a010^6</code></li>\n</ul>",
+  "synced_at": "2026-07-02T20:04:50Z"
+}

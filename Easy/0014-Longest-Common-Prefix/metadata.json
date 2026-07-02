@@ -1,0 +1,17 @@
+{
+  "question_id": "14",
+  "title": "Longest Common Prefix",
+  "title_slug": "longest-common-prefix",
+  "difficulty": "Easy",
+  "language": "python3",
+  "url": "https://leetcode.com/problems/longest-common-prefix/",
+  "tags": [
+    "Array",
+    "String",
+    "Trie"
+  ],
+  "description": "<p>Write a function to find the longest common prefix string amongst an array of strings.</p>\n<p>If there is no common prefix, return an empty string <code>\"\"</code>.</p>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> strs = [\"flower\",\"flow\",\"flight\"]\n<strong>Output:</strong> \"fl\"\n</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> strs = [\"dog\",\"racecar\",\"car\"]\n<strong>Output:</strong> \"\"\n<strong>Explanation:</strong> There is no common prefix among the input strings.\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= strs.length &lt;= 200</code></li>\n<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>\n<li><code>strs[i]</code> consists of only lowercase English letters if it is non-empty.</li>\n</ul>",
+  "synced_at": "2026-07-02T20:04:51Z"
+}

@@ -1,0 +1,16 @@
+{
+  "question_id": "1567",
+  "title": "Maximum Number of Vowels in a Substring of Given Length",
+  "title_slug": "maximum-number-of-vowels-in-a-substring-of-given-length",
+  "difficulty": "Medium",
+  "language": "python3",
+  "url": "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/",
+  "tags": [
+    "String",
+    "Sliding Window"
+  ],
+  "description": "<p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the maximum number of vowel letters in any substring of </em><code>s</code><em> with length </em><code>k</code>.</p>\n<p><strong>Vowel letters</strong> in English are <code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, and <code>'u'</code>.</p>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"abciiidef\", k = 3\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The substring \"iii\" contains 3 vowel letters.\n</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"aeiou\", k = 2\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> Any substring of length 2 contains 2 vowels.\n</pre>\n<p><strong class=\"example\">Example 3:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"leetcode\", k = 3\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> \"lee\", \"eet\" and \"ode\" contain 2 vowels.\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>\n<li><code>s</code> consists of lowercase English letters.</li>\n<li><code>1 &lt;= k &lt;= s.length</code></li>\n</ul>",
+  "synced_at": "2026-07-02T20:04:52Z"
+}
