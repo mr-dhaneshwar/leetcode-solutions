@@ -1,0 +1,15 @@
+{
+  "question_id": "7",
+  "title": "Reverse Integer",
+  "title_slug": "reverse-integer",
+  "difficulty": "Medium",
+  "language": "python3",
+  "url": "https://leetcode.com/problems/reverse-integer/",
+  "tags": [
+    "Math"
+  ],
+  "description": "<p>Given a signed 32-bit integer <code>x</code>, return <code>x</code><em> with its digits reversed</em>. If reversing <code>x</code> causes the value to go outside the signed 32-bit integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, then return <code>0</code>.</p>\n<p><strong>Assume the environment does not allow you to store 64-bit integers (signed or unsigned).</strong></p>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> x = 123\n<strong>Output:</strong> 321\n</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> x = -123\n<strong>Output:</strong> -321\n</pre>\n<p><strong class=\"example\">Example 3:</strong></p>\n<pre>\n<strong>Input:</strong> x = 120\n<strong>Output:</strong> 21\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>-2<sup>31</sup> &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>\n</ul>",
+  "synced_at": "2026-07-02T20:17:22Z"
+}
