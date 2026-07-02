@@ -1,0 +1,16 @@
+# LeetCode Problem: Contains Duplicate
+# Link: https://leetcode.com/problems/contains-duplicate/
+# Difficulty: Easy
+# Language: python3
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set()
+
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+
+        return False
+        
