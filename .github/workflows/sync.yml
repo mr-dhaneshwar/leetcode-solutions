@@ -4,7 +4,7 @@ name: Sync LeetCode Solutions
 on:
   # Run the workflow automatically every 15 minutes (development mode schedule)
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
   # Enable manual triggering of this workflow from the GitHub UI Actions tab
   workflow_dispatch:
 
@@ -24,6 +24,7 @@ jobs:
         with:
           # Fetch all history to ensure proper git commits and tracking
           fetch-depth: 0
+          persist-credentials: true
 
       # Step 2: Set up a Python 3.13 runtime environment and enable caching for pip
       - name: Set up Python
@@ -64,4 +65,4 @@ jobs:
           
           # Commit the staged changes and push to the remote branch
           git commit -m "chore: sync LeetCode solutions"
-          git push
+          git push origin main
