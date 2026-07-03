@@ -1,0 +1,16 @@
+{
+  "question_id": "20",
+  "title": "Valid Parentheses",
+  "title_slug": "valid-parentheses",
+  "difficulty": "Easy",
+  "language": "python",
+  "url": "https://leetcode.com/problems/valid-parentheses/",
+  "tags": [
+    "String",
+    "Stack"
+  ],
+  "description": "<p>Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.</p>\n<p>An input string is valid if:</p>\n<ol>\n<li>Open brackets must be closed by the same type of brackets.</li>\n<li>Open brackets must be closed in the correct order.</li>\n<li>Every close bracket has a corresponding open bracket of the same type.</li>\n</ol>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = \"()\"</span></p>\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n<p><strong class=\"example\">Example 2:</strong></p>\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = \"()[]{}\"</span></p>\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n<p><strong class=\"example\">Example 3:</strong></p>\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = \"(]\"</span></p>\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n</div>\n<p><strong class=\"example\">Example 4:</strong></p>\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = \"([])\"</span></p>\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n<p><strong class=\"example\">Example 5:</strong></p>\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = \"([)]\"</span></p>\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n</div>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>\n<li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</li>\n</ul>",
+  "synced_at": "2026-07-03T19:17:48Z"
+}
