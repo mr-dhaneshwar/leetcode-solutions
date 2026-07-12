@@ -1,0 +1,15 @@
+{
+  "question_id": "6",
+  "title": "Zigzag Conversion",
+  "title_slug": "zigzag-conversion",
+  "difficulty": "Medium",
+  "language": "python",
+  "url": "https://leetcode.com/problems/zigzag-conversion/",
+  "tags": [
+    "String"
+  ],
+  "description": "<p>The string <code>\"PAYPALISHIRING\"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>\n<pre>\nP   A   H   N\nA P L S I I G\nY   I   R\n</pre>\n<p>And then read line by line: <code>\"PAHNAPLSIIGYIR\"</code></p>\n<p>Write the code that will take a string and make this conversion given a number of rows:</p>\n<pre>\nstring convert(string s, int numRows);\n</pre>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"PAYPALISHIRING\", numRows = 3\n<strong>Output:</strong> \"PAHNAPLSIIGYIR\"\n</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"PAYPALISHIRING\", numRows = 4\n<strong>Output:</strong> \"PINALSIGYAHRPI\"\n<strong>Explanation:</strong>\nP     I    N\nA   L S  I G\nY A   H R\nP     I\n</pre>\n<p><strong class=\"example\">Example 3:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"A\", numRows = 1\n<strong>Output:</strong> \"A\"\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= s.length &lt;= 1000</code></li>\n<li><code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.</li>\n<li><code>1 &lt;= numRows &lt;= 1000</code></li>\n</ul>",
+  "synced_at": "2026-07-12T17:44:35Z"
+}
