@@ -1,0 +1,17 @@
+{
+  "question_id": "10",
+  "title": "Regular Expression Matching",
+  "title_slug": "regular-expression-matching",
+  "difficulty": "Hard",
+  "language": "python",
+  "url": "https://leetcode.com/problems/regular-expression-matching/",
+  "tags": [
+    "String",
+    "Dynamic Programming",
+    "Recursion"
+  ],
+  "description": "<p>Given an input string <code>s</code>\u00a0and a pattern <code>p</code>, implement regular expression matching with support for <code>'.'</code> and <code>'*'</code> where:</p>\n<ul>\n<li><code>'.'</code> Matches any single character.\u200b\u200b\u200b\u200b</li>\n<li><code>'*'</code> Matches zero or more of the preceding element.</li>\n</ul>\n<p>Return a boolean indicating whether the matching covers the entire input string (not partial).</p>\n<p>\u00a0</p>",
+  "examples": "<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"aa\", p = \"a\"\n<strong>Output:</strong> false\n<strong>Explanation:</strong> \"a\" does not match the entire string \"aa\".\n</pre>\n<p><strong class=\"example\">Example 2:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"aa\", p = \"a*\"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes \"aa\".\n</pre>\n<p><strong class=\"example\">Example 3:</strong></p>\n<pre>\n<strong>Input:</strong> s = \"ab\", p = \".*\"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> \".*\" means \"zero or more (*) of any character (.)\".\n</pre>\n<p>\u00a0</p>",
+  "constraints": "<ul>\n<li><code>1 &lt;= s.length\u00a0&lt;= 20</code></li>\n<li><code>1 &lt;= p.length\u00a0&lt;= 20</code></li>\n<li><code>s</code> contains only lowercase English letters.</li>\n<li><code>p</code> contains only lowercase English letters, <code>'.'</code>, and\u00a0<code>'*'</code>.</li>\n<li>It is guaranteed for each appearance of the character <code>'*'</code>, there will be a previous valid character to match.</li>\n</ul>",
+  "synced_at": "2026-07-13T13:09:02Z"
+}
